@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.NotifiSync" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- 关键：设置透明系统栏 -->
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <!-- 或者使用以下API 30+的属性 -->
+<!--        <item name="android:windowDecorFitsSystemWindows">false</item>-->
+    </style>
+</resources>
