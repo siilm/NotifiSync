@@ -1,4 +1,4 @@
-# Notification Forwarder for Android
+# NotifiSync
 
 ![App Icon](https://github.com/siilm/NotifiSync/blob/main/icon.png?raw=true)
 
@@ -31,7 +31,7 @@
 2. 在Android设备上安装
 3. 授予必要的通知访问权限
 
-## ⚙配置使用
+## 配置使用
 
 1. 进入首页并授予相关权限后，点击右下角的“创建新连接”按钮。
 2. 输入该连接的每次、你的Bark服务器URL（如 `https://api.day.app/yourkey`）、以及加密相关选项
