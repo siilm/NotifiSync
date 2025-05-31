@@ -1,6 +1,6 @@
 # NotifiSync
 
-![App Icon](https://github.com/siilm/NotifiSync/blob/main/icon.png?raw=true)
+![App Icon](icon.webp)
 
 一个轻量级Android应用，用于将设备通知实时转发至[Bark](https://github.com/Finb/Bark)服务器，实现跨设备通知同步。
 目前只对接Bark，功能专一且轻量化。
