@@ -58,6 +58,9 @@ object BarkHelper {
             File(context.filesDir, "connect_config.json").let { file ->
                 Json.parseToJsonElement(file.readText()).jsonObject.forEach { (configName, value) ->
                     value.jsonObject["address"]?.jsonPrimitive?.content?.let { address ->
+                        if (value.jsonObject["enable"]?.jsonPrimitive?.content.toBoolean()) {
+                            return
+                        }
                         if (value.jsonObject.containsKey("encrypt")) {
                             sendCipherMsg(
                                 address = address,
