@@ -39,7 +39,6 @@ const val TAG = "BarkHelper"
 data class BarkEncryptedRequest(
     val ciphertext: String,
     val iv: String? = null,
-//    val mode: String
 )
 
 object BarkHelper {
