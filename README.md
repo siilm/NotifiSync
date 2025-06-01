@@ -35,7 +35,7 @@
 ## 配置使用
 
 1. 进入首页并授予相关权限后，点击右下角的“创建新连接”按钮。
-2. 输入该连接的每次、你的Bark服务器URL（如 `https://api.day.app/yourkey`）、以及加密相关选项
+2. 输入该连接的名称、你的Bark服务器URL（如 `https://api.day.app/yourkey`）、以及加密相关选项
 3. 前往设置页面配置黑名单/白名单（必须）
 4. 开启通知监听服务（授予读取通知权限后自动启动）
 
@@ -45,4 +45,4 @@
 ---
 
 **联系作者**: dea405352@gmail.com
-**项目主页**: https://github.com/siilm/NotifiSync
+**项目主页**: https://github.com/siilm/notifisync
