@@ -117,16 +117,6 @@ fun LogsPage(
                         content = filteredContent,
                         wrapContent = wrapContent
                     )
-//                    Text(
-//                        text = filteredContent,
-//                        style = MaterialTheme.typography.bodyLarge,
-//                        modifier = Modifier
-//                            .padding(16.dp)
-//                            .fillMaxWidth(),
-//                        softWrap = wrapContent,
-//                        // 非自动换行时允许文本超出容器
-//                        overflow = if (wrapContent) TextOverflow.Clip else TextOverflow.Visible
-//                    )
                 }
             }
         }
@@ -254,16 +244,6 @@ private fun LogContent(
     content: String,
     wrapContent: Boolean
 ) {
-//
-//    Text(
-//        text = content,
-//        style = MaterialTheme.typography.bodyLarge,
-//        modifier = Modifier
-//            .fillMaxSize()
-//            .verticalScroll(scrollState)
-//            .padding(16.dp),
-//        softWrap = wrapContent
-//    )
     Text(
         text = content,
         style = MaterialTheme.typography.bodyLarge,
@@ -272,7 +252,6 @@ private fun LogContent(
 //            .verticalScroll(scrollState)
             .fillMaxWidth(),
         softWrap = wrapContent,
-        // 非自动换行时允许文本超出容器
         overflow = if (wrapContent) TextOverflow.Clip else TextOverflow.Visible
     )
 }

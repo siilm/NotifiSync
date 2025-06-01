@@ -9,6 +9,7 @@ import com.deaworks.notifisync.ui.pages.AccessControlPage
 import com.deaworks.notifisync.ui.pages.HomePage
 import com.deaworks.notifisync.ui.pages.LogsPage
 import com.deaworks.notifisync.ui.pages.SettingsPage
+import com.deaworks.notifisync.ui.pages.SolutionPage
 
 @Composable
 fun PageRouter(
@@ -20,12 +21,16 @@ fun PageRouter(
         composable("home") { HomePage() }
         composable("settings") { SettingsPage(navController) }
         composable("logs") {
-            LogsPage(
-            )
+            LogsPage()
         }
 
         composable("access_control") {
             AccessControlPage(
+                onBack = { navController.popBackStack() },
+            )
+        }
+        composable("solution_page") {
+            SolutionPage(
                 onBack = { navController.popBackStack() },
             )
         }

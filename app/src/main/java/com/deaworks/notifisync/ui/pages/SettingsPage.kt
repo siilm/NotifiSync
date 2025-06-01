@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Warning
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -86,7 +87,6 @@ fun SettingsPage(navController: NavController) {
                         .height(32.dp)
                         .clickable {
                             navController.navigate("access_control")
-
                         },
                 ) {
                     Icon(
@@ -133,6 +133,29 @@ fun SettingsPage(navController: NavController) {
                         .fillMaxWidth()
                         .height(32.dp)
                         .clickable {
+                            navController.navigate("solution_page")
+                        },
+                ) {
+                    Icon(
+                        Icons.Default.Lock,
+                        contentDescription = null,
+                        modifier = Modifier.align(Alignment.CenterVertically)
+                    )
+                    Text(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 16.dp)
+                            .align(Alignment.CenterVertically),
+                        text = "保活服务帮助",
+                        fontSize = 20.sp
+                    )
+                }
+                Row(
+                    modifier = Modifier
+                        .padding(16.dp)
+                        .fillMaxWidth()
+                        .height(32.dp)
+                        .clickable {
                             context.startActivity(Intent(Settings.ACTION_NOTIFICATION_LISTENER_SETTINGS))
                         },
                 ) {
@@ -147,31 +170,6 @@ fun SettingsPage(navController: NavController) {
                             .padding(start = 16.dp)
                             .align(Alignment.CenterVertically),
                         text = "[Debug]跳转到权限授予界面",
-                        fontSize = 20.sp
-                    )
-                }
-                Row(
-                    modifier = Modifier
-                        .padding(16.dp)
-                        .fillMaxWidth()
-                        .height(32.dp)
-                        .clickable {
-//                            NotifiListener.stopService(context)
-                            serviceViewModel.updateServiceState(false)
-                            "待写".showToast(context)
-                        },
-                ) {
-                    Icon(
-                        Icons.Default.Warning,
-                        contentDescription = null,
-                        modifier = Modifier.align(Alignment.CenterVertically)
-                    )
-                    Text(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(start = 16.dp)
-                            .align(Alignment.CenterVertically),
-                        text = "[Debug]强制停止服务",
                         fontSize = 20.sp
                     )
                 }
