@@ -26,11 +26,11 @@ data class BarkNotification(
     val body: String,
 )
 
-enum class AesMode(val value: String, val requiresIv: Boolean) {
-    CBC_128("AES-128-CBC", true),
-    ECB_128("AES-128-ECB", false),
-    CBC_256("AES-256-CBC", true),
-    ECB_256("AES-256-ECB", false);
+enum class AesMode(val value: String) {
+    CBC_128("AES-128-CBC"),
+    ECB_128("AES-128-ECB"),
+    CBC_256("AES-256-CBC"),
+    ECB_256("AES-256-ECB");
 }
 
 const val TAG = "BarkHelper"
@@ -57,8 +57,8 @@ object BarkHelper {
             File(context.filesDir, "connect_config.json").let { file ->
                 Json.parseToJsonElement(file.readText()).jsonObject.forEach { (configName, value) ->
                     value.jsonObject["address"]?.jsonPrimitive?.content?.let { address ->
-                        if (value.jsonObject["enable"]?.jsonPrimitive?.content.toBoolean()) {
-                            return
+                        if (!value.jsonObject["enable"]?.jsonPrimitive?.content.toBoolean()) {
+                            return //enable项为false则返回
                         }
                         if (value.jsonObject.containsKey("encrypt")) {
                             sendCipherMsg(
