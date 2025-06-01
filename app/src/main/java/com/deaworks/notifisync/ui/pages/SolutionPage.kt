@@ -22,12 +22,13 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.ColorPainter
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.deaworks.notifisync.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -68,7 +69,7 @@ fun SolutionPage(onBack: () -> Unit) {
             )
 
             Text(
-                text = "根据指引操作（以HyperOS 2为例）：",
+                text = "请根据指引操作（以HyperOS 2为例）：",
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = TextAlign.Center
@@ -76,17 +77,20 @@ fun SolutionPage(onBack: () -> Unit) {
 
             StepWithImage(
                 title = "1. 后台任务锁定",
-                description = "• 进入多任务界面\n• 长按本应用\n• 点击\"\uD83D\uDD12\"图标锁定后台"
+                description = "• 进入多任务界面\n• 长按本应用\n• 点击\"\uD83D\uDD12\"图标锁定后台",
+                picture = painterResource(id = R.drawable.step1)
             )
 
             StepWithImage(
                 title = "2. 允许后台运行",
-                description = "• 打开应用信息页\n• 点击\"电量消耗\"\n• 选择\"无限制\"后台耗电策略"
+                description = "• 打开应用信息页\n• 点击\"电量消耗\"\n• 选择\"无限制\"后台耗电策略",
+                picture = painterResource(id = R.drawable.step2)
             )
 
             StepWithImage(
                 title = "3. 允许应用自启动",
-                description = "• 在应用信息页\n• 开启\"自启动\"开关"
+                description = "• 在应用信息页\n• 开启\"自启动\"开关",
+                picture = painterResource(id = R.drawable.step3)
             )
 
             Text(
@@ -104,7 +108,7 @@ fun SolutionPage(onBack: () -> Unit) {
 }
 
 @Composable
-fun StepWithImage(title: String, description: String) {
+fun StepWithImage(title: String, description: String, picture: Painter) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -131,12 +135,12 @@ fun StepWithImage(title: String, description: String) {
 
         // 图片区域 (右侧40%)
         Image(
-            painter = ColorPainter(Color.LightGray), // 占位符，后续替换为实际图片
+            painter = picture,
             contentDescription = "配置步骤图示",
             contentScale = ContentScale.Fit,
             modifier = Modifier
                 .weight(2f)
-                .height(100.dp) // 固定高度，宽度自适应
+                .height(100.dp)
         )
     }
 }
