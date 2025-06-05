@@ -216,10 +216,13 @@ class NotifiListener : NotificationListenerService() {
     override fun onNotificationPosted(sbn: StatusBarNotification?, rankingMap: RankingMap?) {
         super.onNotificationPosted(sbn, rankingMap)
         val packageName = sbn?.packageName
+
+        if (packageName.toString() == "com.termux") {
+            return //临时措施，应用与termux同时启动时导致崩溃
+        }
+
         LogSaver.d(TAG, "捕获到通知: $packageName", applicationContext)
-
         val selectedPackages = File(applicationContext.filesDir, "package_select.json")
-
         if (getConfigValue(
                 applicationContext, "package_select.json", "blacklist"
             ).toBoolean()
