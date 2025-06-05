@@ -217,7 +217,7 @@ class NotifiListener : NotificationListenerService() {
         super.onNotificationPosted(sbn, rankingMap)
         val packageName = sbn?.packageName
 
-        if (packageName.toString() == "com.termux") {
+        if (packageName == "com.termux") {
             return //临时措施，应用与termux同时启动时导致崩溃
         }
 
